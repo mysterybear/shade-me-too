@@ -1,7 +1,7 @@
 import { OrbitControls, shaderMaterial } from "@react-three/drei"
 import { Canvas, extend, useFrame, useLoader } from "@react-three/fiber"
 import React, { Suspense, useEffect, useRef } from "react"
-import fragmentShader from "../shaders/imageFragment.glsl"
+import fragmentShader from "../shaders/fragment.glsl"
 import vertexShader from "../shaders/vertex.glsl"
 import * as THREE from "three"
 import { useControls } from "leva"
@@ -30,25 +30,25 @@ const Main = () => {
 
   const { t, r, b, l } = useControls({
     t: {
-      value: 0.1,
+      value: 0.0,
       step: 0.001,
       min: 0.0,
       max: 1.0,
     },
     r: {
-      value: 0.1,
+      value: 0.0,
       step: 0.001,
       min: 0.0,
       max: 1.0,
     },
     b: {
-      value: 0.1,
+      value: 0.0,
       step: 0.001,
       min: 0.0,
       max: 1.0,
     },
     l: {
-      value: 0.1,
+      value: 0.0,
       step: 0.001,
       min: 0.0,
       max: 1.0,
@@ -73,11 +73,7 @@ const Main = () => {
 const App = () => {
   return (
     <div className="absolute w-full h-full bg-blue-200">
-      <Canvas
-      // onCreated={(state) => {
-      //   console.log(state, "created")
-      // }}
-      >
+      <Canvas>
         <Suspense fallback={null}>
           <Main />
         </Suspense>
